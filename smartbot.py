@@ -14,7 +14,7 @@ class SmartBot:
         self.stop_downloads = False
 
     def handle_request(self,request_num=None,request_string=None):
-        if (request_string is not None and request_string.lower() is "hi" or 
+        if (request_num is None and request_string is not None and request_string.lower() is "hi" or 
                 request_string.lower() is "smarty" or
                 request_string.lower() is "hello"):
             response = ("Hello..what you want"
@@ -30,8 +30,19 @@ class SmartBot:
         elif (request_num is not None and
               request_num is 1):
             self.play_music = True
-            
-            response = "Oops , please greet me nicely :)"
+            play_music_func()
+            response = "playing music.."
+        elif (request_num is not None and
+            request_num is 2):
+            self.play_youtube = True
+            play_youtube_func()
+            response = "playing youtube.."
+        elif (request_num is not None
+            request_num is 3):
+            self.download_torrent = True
+            response = "what you want to download ?"
+        elif (request_num is None and self.download_torrent is True
+        )
 
         
     
